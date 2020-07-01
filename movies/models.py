@@ -11,7 +11,7 @@ class Movie(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
+    def __str__(self):#para mostrar los nombres de las peliculas en el admin
         return self.titulo
     
 class Actor(models.Model):
