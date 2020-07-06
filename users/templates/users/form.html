@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+    <h1>Crea un usuario nuevo</h1>
+    <form action="{% url 'users:create' %}" method="POST"
+        enctype="multipart/form-data"><!--enctype es para indicar que se va a mandar mas formatos-->
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        <input type="submit" value="Crear usario">
+    </form>
+ {% endblock content %}
+

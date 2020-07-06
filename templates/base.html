@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Django App</title>
+</head>
+<body>
+    <ul>
+        <a href="{% url 'movies:list' %}"><li>Ver peliculas</li></a>
+        <a href="{% url 'movies:create' %}"><li>Crear película</li></a>
+        <a href="{% url 'users:list' %}"><li>Lista de usarios</li></a>
+        
+    </ul>
+    {% block content %}<!--esto sirve para pasar formularios dinimicos-->
+    
+    {% endblock content %}
+</body>
+</html>
+
+<!--
+    <ul>
+        <a href="/movies/"><li>Ver peliculas</li></a>
+        <a href="/movies/create/"><li>Crear película</li></a>
+        <a href=""><li>Lista de usarios</li></a>
+        <a href=""><li>Crear usuario</li></a>
+    </ul>
+-->

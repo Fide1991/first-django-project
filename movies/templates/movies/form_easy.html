@@ -1,14 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{%block content %}
     <form action="
         {% if id %}
-            /movies/update/{{id}}/
+            {% url 'movies:update' id %} 
+        {%else%}
+            {% url 'movies:create'%}
+        {% endif %}
+    " method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="
+            {% if id %} Actualizar {% else %} Crear película {% endif %}
+        ">
+    </form>
+{% endblock content %} 
+
+
+<!--
+<form action="
+        {% if id %}
+            /movies/update/{{id}}/ 
         {%else%}
             /movies/create/
         {% endif %}
@@ -19,5 +31,4 @@
             {% if id %} Actualizar {% else %} Crear película {% endif %}
         ">
     </form>
-</body>
-</html>
+    -->
