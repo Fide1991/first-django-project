@@ -10,11 +10,27 @@
         <a href="{% url 'movies:list' %}"><li>Ver peliculas</li></a>
         <a href="{% url 'movies:create' %}"><li>Crear película</li></a>
         <a href="{% url 'users:list' %}"><li>Lista de usarios</li></a>
-        
+        <a href="{% url 'users:create' %}"><li>Crear usuario</li></a>
+        <a href="{% url 'addresses:create' %}"><li>Crear Direccion</li></a>
     </ul>
     {% block content %}<!--esto sirve para pasar formularios dinimicos-->
     
     {% endblock content %}
+
+    {% if messages %}
+        {% for message in messages %}
+        
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %} 
+                <p style="color:red">{{ message }}</p>
+            {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %} 
+                <p style="color:yellow">{{ message }}</p>
+            {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %} 
+                <p style="color:green">{{ message }}</p>
+            {% endif %} 
+
+        {% endfor %}
+    {% endif %}
+
 </body>
 </html>
 
