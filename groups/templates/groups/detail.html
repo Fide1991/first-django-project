@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ group.name }}</h1>
+    <p>Descripción: {{ group.description }}</p>
+    {% if group.users.all|length > 0 %}
+        {% for user in group.users.all %}
+                </h2>Usuarios del grupo: </h2>
+                <p>{{ user.get_full_name }}</p>
+        {% endfor %}
+    {% else %}
+        <p>No hay usuarios registrados en este grupo</p>
+    {% endif %}
+{% endblock content %}
+

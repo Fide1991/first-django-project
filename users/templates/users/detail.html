@@ -23,6 +23,19 @@
     {% else %}
         <p>Ooops! el usuario no tiene direcciones</p>
     {% endif %}
+
+    <h2>Grupos de usuario</h2>
+    {% if user.groupss.all|length > 0 %}
+        {% for group in user.groupss.all %}
+            
+            <p>{{ group.name }}</p>
+            
+        {% endfor %}
+    {% else %}
+        <p>Ooops! el usuario no tiene grupos</p>
+    {% endif %}
+
+
     <a href="{% url 'users:update' user.id %}"><button>Editar usuario</button></a>
     <a href="{% url 'users:delete' user.id %}"><button>Eliminar usuario</button></a>
 {% endblock content%}

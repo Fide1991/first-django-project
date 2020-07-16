@@ -60,8 +60,10 @@ class UpdateAddress(views.View):
 
 def DeleteAddress(request, id):
     address = Address.objects.get(pk=id)
+    user_id = address.user.id
     address.delete()
     messages.info(request, 'Dirección eliminada')
-    return redirect('users:list')
+    #return redirect('users:list')
+    return redirect('users:detail', user_id)
 
 
